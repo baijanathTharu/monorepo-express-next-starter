@@ -1,6 +1,7 @@
 {
   "version": 2,
   "projects": {
+    "greeting": "libs/greeting",
     "server": "apps/server",
     "shared-types": "libs/shared-types",
     "web": "apps/web",

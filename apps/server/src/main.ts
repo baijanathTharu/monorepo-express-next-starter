@@ -4,9 +4,10 @@ import express from 'express';
 import cors from 'cors';
 import { User } from '@express-next-starter/shared-types';
 import { ApolloServer } from 'apollo-server-express';
-import { buildSchema, Query, Resolver } from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 import { ApolloServerPluginLandingPageGraphQLPlayground } from 'apollo-server-core';
 import { environment } from './environments/environment';
+import { GreetingResolver } from '@express-next-starter/greeting';
 
 dotenv.config();
 
@@ -26,14 +27,6 @@ const data: User[] = [
   },
 ];
 
-@Resolver()
-class HelloResolver {
-  @Query(() => String)
-  async hello() {
-    return 'Hello World!';
-  }
-}
-
 async function main() {
   const app = express();
 
@@ -52,8 +45,9 @@ async function main() {
   });
 
   /* *** graphql server *** */
+
   const schema = await buildSchema({
-    resolvers: [HelloResolver],
+    resolvers: [GreetingResolver],
   });
   const apolloServer = new ApolloServer({
     schema,

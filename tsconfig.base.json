@@ -16,6 +16,7 @@
     "esModuleInterop": true,
     "baseUrl": ".",
     "paths": {
+      "@express-next-starter/greeting": ["libs/greeting/src/index.ts"],
       "@express-next-starter/shared-types": ["libs/shared-types/src/index.ts"]
     }
   },
