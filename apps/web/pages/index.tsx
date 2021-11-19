@@ -8,7 +8,7 @@ export function Index() {
   console.log('test', process.env.NEXT_PUBLIC_TEST);
 
   React.useEffect(() => {
-    fetch('http://localhost:3333/posts', {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/posts`, {
       headers: {
         'Content-Type': 'application/json',
       },
